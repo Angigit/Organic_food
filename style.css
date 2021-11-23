@@ -1,0 +1,650 @@
+/* https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/ */
+
+.offscreen {
+  clip-path: inset(100%);
+  clip: rect(1px 1px 1px 1px);
+  /* IE 6/7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  /* added line */
+  width: 1px;
+}
+
+.no-selection {
+  user-select: none;
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-ExtraLight.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Light.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('./fonts/Oswald/Oswald-Bold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Light.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url('./fonts/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+body {
+  font-weight: 300;
+  font-family: 'Oswald', sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 500px;
+  background-color: lightgrey;
+  position: relative;
+}
+
+.header-container {
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 48vw;
+  overflow: hidden;
+}
+
+.menu-button {
+  font-size: 4rem;
+  margin: 10px;
+  display: none;
+}
+
+.filter {
+  filter: brightness(60%);
+  width: 100%;
+}
+
+.opening {
+  position: absolute;
+  top: 1rem;
+  left: 10rem;
+}
+
+.line {
+  position: absolute;
+  top: 3rem;
+  height: 2px;
+  width: 100%;
+  background-color: grey;
+}
+
+.organic-logo {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 3.2rem;
+  left: 10rem;
+  width: 10rem;
+  height: 3rem;
+}
+
+.myaccount {
+  position: absolute;
+  top: 1rem;
+  right: 10rem;
+}
+
+.close-menu {
+  display: none;
+  font-size: 2rem;
+  text-align: right;
+  margin-right: 20px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.main-menu {
+  position: absolute;
+  top: 3rem;
+  right: 10rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-menu ul li {
+  display: inline-block;
+  padding-left: 1rem;
+}
+
+.main-menu ul li a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title .organic-logo150 {
+  position: absolute;
+  top: 12rem;
+  left: 37rem;
+}
+
+.page-title {
+  position: absolute;
+  top: 21rem;
+  left: 32rem;
+  color: whitesmoke;
+}
+
+.title a {
+  position: absolute;
+  top: 26.5rem;
+  left: 35.5rem;
+  color: whitesmoke;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgb(95, 247, 95);
+  background-color: rgb(95, 247, 95);
+  border-radius: 30px;
+  padding: 0.5rem 4rem;
+}
+
+/* main-content styling */
+
+.welcome {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.main-content {
+  height: 45vw;
+}
+
+.main-content p {
+  text-align: center;
+  padding: 0 24rem;
+  font-weight: 500;
+}
+
+.main-content .card h4 {
+  color: green;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.main-content .card p{
+  text-align: center;
+  padding: 0 2rem;
+  color: green;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 30px 35px;
+}
+
+.row {margin: 0 15rem;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.card {
+  text-align: center;
+  box-shadow: 0 4px 30px 0 rgb(0 0 0 / 30%);
+  transition: 0.3s;
+  background-color: whitesmoke;
+  padding: 40px 0;
+  height: 18rem;
+}
+
+.content-image {
+  position: absolute;
+  clip: rect(0px,85rem,20rem,0px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 350px;
+  text-align: center;
+}
+
+
+
+/* Media queries */
+
+@media(max-width: 1200px) {
+  .opening {
+    left: 6rem;
+  }
+  
+  .organic-logo {
+    left: 6rem;
+  }
+  
+  .myaccount {
+    right: 6rem;
+  }
+  
+  .main-menu {
+    right: 6rem;
+  }
+  
+  .main-menu ul li {
+    padding-left: 0.5rem;
+  }
+  
+  .title .organic-logo150 {
+    top: 10rem;
+    left: 32.5rem;
+  }
+
+  .page-title {
+    top: 19rem;
+    left: 28rem;
+  }
+  
+  .title a {
+    top: 24rem;
+    left: 31rem;
+  }
+
+  .welcome {
+    margin-top: 4rem;
+  }
+
+  .main-content p {
+    padding: 0 15rem;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 8rem;
+  }
+
+  .column {
+    width: 20%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .header-container {
+    height: 48vw;
+  }
+
+  .title .organic-logo150 {
+    top: 10rem;
+    left: 32.5rem;
+  }
+
+  .page-title {
+    left: 28rem;
+  }
+  
+  .title a {
+    top: 24rem;
+    left: 31rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header-container {
+    height: 48vw;
+  }
+
+  .title .organic-logo150 {
+    left: 30rem;
+  }
+
+  .page-title {
+    left: 25rem;
+  }
+  
+  .title a {
+    left: 28.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .header-container {
+    height: 54vw;
+  }
+
+  .opening {
+    left: 4rem;
+  }
+
+  .organic-logo {
+    left: 4rem;
+  }
+
+  .myaccount {
+    right: 4rem;
+}
+
+  .main-menu {
+    right: 4rem;
+  }
+
+  .main-content p {
+    padding: 0 12rem;
+  }
+
+  .main-content .card p {
+    padding: 0 1.5rem;
+}
+
+  .title .organic-logo150 {
+    left: 25.5rem;
+  }
+
+  .page-title {
+    left: 21.5rem;
+  }
+  
+  .title a {
+    left: 25rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .header-container {
+    height: 56vw;
+  }
+
+  header .main-menu {
+    order: 3;
+    height: 6rem;
+    /* width: 100%; */
+  }
+  
+  .title .organic-logo150 {
+    left: 24.5rem;
+  }
+
+  .page-title {
+    top: 18.5rem;
+    left: 19.5rem;
+  }
+  
+  .title a {
+    left: 23rem;
+  }
+
+  .welcome {
+    margin-top: 4rem;
+  }
+
+  .row {
+    margin-right: 0px;
+    margin-left: 8rem;
+  }
+
+  .column {
+    width: 20%;
+  }
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    height: 58vw;
+  }
+  
+  .title .organic-logo150 {
+    left: 23.5rem;
+  }
+
+  .page-title {
+    left: 18.5rem;
+  }
+  
+  .title a {
+    left: 22rem;
+  }
+
+  .main-content .card {
+    height: 18rem;
+    margin: 0 -10px;
+  }
+
+  .main-content .card p {
+    padding: 0 1rem;
+  }
+
+  .row {
+    margin-left: 7rem;
+  }
+
+  .column {
+    width: 20%;
+  }
+}
+
+@media (max-width: 800px) {
+  .header-container {
+    height: 65vw;
+  }
+
+  .opening {
+    left: 3rem;
+  }
+
+  .organic-logo {
+    left: 3rem;
+  }
+
+  .myaccount {
+    right: 3rem;
+}
+
+  .main-menu {
+    right: 3rem;
+  }
+  
+  .title .organic-logo150 {
+    left: 20.5rem;
+  }
+
+  .page-title {
+    left: 15.5rem;
+  }
+  
+  .title a {
+    left: 19rem;
+  }
+
+  .main-content p {
+    padding: 0 8rem;
+  }
+
+  .main-content .card {
+    height: 17rem;
+    margin: 0 -10px;
+  }
+
+  .main-content .card p {
+    padding: 0 0.5rem;
+  }
+
+  .row {
+    margin-left: 5rem;
+  }
+
+  .column {
+    width: 20%;
+  }
+}
+
+@media (max-width: 700px) {
+  .title .organic-logo150 {
+    left: 17.5rem;
+  }
+
+  .page-title {
+    top: 19rem;
+    left: 14rem;
+    font-size: 27px;
+  }
+  
+  .title a {
+    left: 16rem;
+  }
+
+  .welcome {
+    font-size: 30px;
+  }
+
+  .main-content p {
+    padding: 0 6rem;
+    font-size: 15px;
+  }
+
+  .main-content .card {
+    height: 16rem;
+  }
+
+  .main-content .card p {
+    padding: 0 0.5rem;
+  }
+
+  .row {
+    margin-left: 2.5rem;
+  }
+
+  .column {
+    width: 21%;
+  }
+}
+
+@media (max-width: 650px) {
+  .title .organic-logo150 {
+    top: 7.5rem;
+    left: 15.5rem;
+    width: 21%;
+  }
+
+  .page-title {
+    top: 16rem;
+    left: 12rem;
+    font-size: 26px;
+  }
+  
+  .title a {
+    top: 20rem;
+    left: 13.5rem;
+  }
+
+  .welcome {
+    font-size: 28px;
+  }
+
+  .main-menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    right: 0%;
+    flex-direction: column;
+    width: 50%; 
+  }
+
+  .main-menu ul {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  header .main-menu ul li a {
+    color: white;
+  }
+
+  .menu-button {
+    display: block;
+    order: 3;
+    height: 46px;
+    cursor: pointer;
+  }
+
+  .close-menu {
+    color: white;
+  }
+
+  .main-content p {
+    padding: 0 6rem;
+    font-size: 15px;
+  }
+
+  .main-content .card p {
+    padding: 0 0.5rem;
+  }
+
+  .row {
+    margin-left: 1.5rem;
+  }
+
+  .column {
+    width: 21%;
+  }
+}
+
+
+* JS specific code should always be at the end of this file */
+.js-hidden {
+  display: none;
+}
+
+/* increasing specificity by 1 to make this selector */
+.main-menu.js-show {
+  display: block;
+}
+
+.js-menu-open {
+  right: 50%;
+}
+
